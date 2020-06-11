@@ -1,10 +1,11 @@
 module Api
   module V1
     class BlogsController < ApplicationController
+      before_action :authorize_access_reqest!
       before_action :set_blog, only: [:show, :update, :destroy]
 
       def index
-        @blogs = Blog.all
+        @blogs = current_user.blogs.all
 
         render json: @blogs
       end
@@ -14,7 +15,7 @@ module Api
       end
 
       def create
-        @blog = Blog.new(blog_params)
+        @blog = current_user.blogs.build(blog_params)
 
         if @blog.save
           render json: @blog, status: :created, location: @blog
@@ -38,11 +39,11 @@ module Api
       private
 
       def set_blog
-        @blog = Blog.find(params[:id])
+        @blog = current_user.blogs.find(params[:id])
       end
 
       def blog_params
-        params.require(:blog).permit(:title, :body, :user_id)
+        params.require(:blog).permit(:title, :body)
       end
     end
   end
