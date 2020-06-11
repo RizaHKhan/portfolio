@@ -12,9 +12,9 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe "/posts", type: :request do
+RSpec.describe "/blogs", type: :request do
   # This should return the minimal set of attributes required to create a valid
-  # Post. As you add validations to Post, be sure to
+  # Blog. As you add validations to Blog, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
@@ -26,7 +26,7 @@ RSpec.describe "/posts", type: :request do
 
   # This should return the minimal set of values that should be in the headers
   # in order to pass any filters (e.g. authentication) defined in
-  # PostsController, or in your router and rack
+  # BlogsController, or in your router and rack
   # middleware. Be sure to keep this updated too.
   let(:valid_headers) {
     {}
@@ -34,48 +34,48 @@ RSpec.describe "/posts", type: :request do
 
   describe "GET /index" do
     it "renders a successful response" do
-      Post.create! valid_attributes
-      get posts_url, headers: valid_headers, as: :json
+      Blog.create! valid_attributes
+      get blogs_url, headers: valid_headers, as: :json
       expect(response).to be_successful
     end
   end
 
   describe "GET /show" do
     it "renders a successful response" do
-      post = Post.create! valid_attributes
-      get post_url(post), as: :json
+      blog = Blog.create! valid_attributes
+      get blog_url(blog), as: :json
       expect(response).to be_successful
     end
   end
 
   describe "POST /create" do
     context "with valid parameters" do
-      it "creates a new Post" do
+      it "creates a new Blog" do
         expect {
-          post posts_url,
-               params: { post: valid_attributes }, headers: valid_headers, as: :json
-        }.to change(Post, :count).by(1)
+          post blogs_url,
+               params: { blog: valid_attributes }, headers: valid_headers, as: :json
+        }.to change(Blog, :count).by(1)
       end
 
-      it "renders a JSON response with the new post" do
-        post posts_url,
-             params: { post: valid_attributes }, headers: valid_headers, as: :json
+      it "renders a JSON response with the new blog" do
+        post blogs_url,
+             params: { blog: valid_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:created)
         expect(response.content_type).to match(a_string_including("application/json"))
       end
     end
 
     context "with invalid parameters" do
-      it "does not create a new Post" do
+      it "does not create a new Blog" do
         expect {
-          post posts_url,
-               params: { post: invalid_attributes }, as: :json
-        }.to change(Post, :count).by(0)
+          post blogs_url,
+               params: { blog: invalid_attributes }, as: :json
+        }.to change(Blog, :count).by(0)
       end
 
-      it "renders a JSON response with errors for the new post" do
-        post posts_url,
-             params: { post: invalid_attributes }, headers: valid_headers, as: :json
+      it "renders a JSON response with errors for the new blog" do
+        post blogs_url,
+             params: { blog: invalid_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to eq("application/json")
       end
@@ -88,28 +88,28 @@ RSpec.describe "/posts", type: :request do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested post" do
-        post = Post.create! valid_attributes
-        patch post_url(post),
-              params: { post: invalid_attributes }, headers: valid_headers, as: :json
-        post.reload
+      it "updates the requested blog" do
+        blog = Blog.create! valid_attributes
+        patch blog_url(blog),
+              params: { blog: invalid_attributes }, headers: valid_headers, as: :json
+        blog.reload
         skip("Add assertions for updated state")
       end
 
-      it "renders a JSON response with the post" do
-        post = Post.create! valid_attributes
-        patch post_url(post),
-              params: { post: invalid_attributes }, headers: valid_headers, as: :json
+      it "renders a JSON response with the blog" do
+        blog = Blog.create! valid_attributes
+        patch blog_url(blog),
+              params: { blog: invalid_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:ok)
         expect(response.content_type).to eq("application/json")
       end
     end
 
     context "with invalid parameters" do
-      it "renders a JSON response with errors for the post" do
-        post = Post.create! valid_attributes
-        patch post_url(post),
-              params: { post: invalid_attributes }, headers: valid_headers, as: :json
+      it "renders a JSON response with errors for the blog" do
+        blog = Blog.create! valid_attributes
+        patch blog_url(blog),
+              params: { blog: invalid_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to eq("application/json")
       end
@@ -117,11 +117,11 @@ RSpec.describe "/posts", type: :request do
   end
 
   describe "DELETE /destroy" do
-    it "destroys the requested post" do
-      post = Post.create! valid_attributes
+    it "destroys the requested blog" do
+      blog = Blog.create! valid_attributes
       expect {
-        delete post_url(post), headers: valid_headers, as: :json
-      }.to change(Post, :count).by(-1)
+        delete blog_url(blog), headers: valid_headers, as: :json
+      }.to change(Blog, :count).by(-1)
     end
   end
 end
