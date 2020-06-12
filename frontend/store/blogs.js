@@ -17,7 +17,7 @@ export const mutations = {
 
 export const actions = {
   async getBlogs({ commit }) {
-    const response = await this.$axios.$get()
+    const response = await this.$axios.$get('/api/')
     console.log(response)
   }
 }

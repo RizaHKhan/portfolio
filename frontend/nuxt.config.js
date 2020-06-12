@@ -21,7 +21,18 @@ export default {
   plugins: ['~/plugins/axios'],
   buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/vuetify'],
   modules: ['@nuxtjs/axios', '@nuxtjs/pwa'],
-  axios: {},
+  axios: {
+    proxy: true
+  },
+  proxy: {
+    '/api': {
+      target: 'http://localhost:3000/',
+      pathRewrite: {
+        '^/api': '/'
+      },
+      changeOrigin: true
+    }
+  },
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
