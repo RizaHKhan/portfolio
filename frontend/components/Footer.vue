@@ -1,0 +1,16 @@
+<template>
+  <v-footer :fixed="fixed" app>
+    <span class="ma-auto">
+      <strong class="red--text">khanr</strong>
+      &copy; {{ new Date().getFullYear() }}
+    </span>
+  </v-footer>
+</template>
+
+<script>
+export default {
+  mounted() {
+    this.$store.dispatch('blogs/getBlogs')
+  }
+}
+</script>

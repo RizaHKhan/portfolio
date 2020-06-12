@@ -8,13 +8,13 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
+  asyncData({ params, store }) {
+    store.commit('blogs/SET_FILTER', params.id)
+  },
   computed: {
     ...mapGetters({
       filteredBlog: 'blogs/filteredBlog'
     })
-  },
-  mounted() {
-    this.$store.commit('blogs/setFilter', this.$route.params.id)
   }
 }
 </script>
