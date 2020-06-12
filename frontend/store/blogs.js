@@ -1,23 +1,31 @@
 export const state = () => ({
-  blogs: [
-    { title: 'somet title', body: 'some body' },
-    { title: 'somet other title', body: 'some body' },
-    { title: 'somet  last title', body: 'some body' }
-  ]
+  blogs: [],
+  filter: ''
 })
 
 export const getters = {
-  getBlogs: (state) => state.blogs
+  getBlogs: (state) => state.blogs,
+  filteredBlog: (state) =>
+    state.blogs.filter((blog) => {
+      return blog.id === parseInt(state.filter)
+    })
 }
 export const mutations = {
   getBlogs: (state, blogs) => {
     state.blogs = blogs
+  },
+  setFilter(state, filter) {
+    state.filter = filter
   }
 }
 
 export const actions = {
   async getBlogs({ commit }) {
-    const response = await this.$axios.$get('/api/')
-    console.log(response)
+    try {
+      const response = await this.$axios.$get('/api/')
+      commit('getBlogs', response)
+    } catch (error) {
+      console.log(error)
+    }
   }
 }

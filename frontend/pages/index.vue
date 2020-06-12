@@ -1,18 +1,27 @@
 <template>
   <div>
-    <ul>
-      <li v-for="{ title, body } in blogs" :key="title">
-        <h1>{{ title }}</h1>
-        <p>{{ body }}</p>
-      </li>
-    </ul>
+    <v-row>
+      <v-col cols="12" md="12" lg="6">
+        <Card
+          v-for="{ title, body, id } in blogs"
+          :key="id"
+          :title="title"
+          :body="body"
+          :id="id"
+        />
+      </v-col>
+      <v-col cols="12" md="12" lg="6">1</v-col>
+    </v-row>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-
+import Card from '@/components/Blog'
 export default {
+  components: {
+    Card
+  },
   computed: {
     ...mapGetters({
       blogs: 'blogs/getBlogs'

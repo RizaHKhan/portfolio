@@ -4,7 +4,6 @@ export default function({ $axios, redirect }) {
     if (!config.url) {
       config.url = 'http://localhost:3000/'
     }
-    console.log(config)
   })
 
   $axios.onError((error) => {
