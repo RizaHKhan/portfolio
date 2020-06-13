@@ -1,15 +1,16 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="12" md="6" lg="8">
+      <v-col cols="12" md="6" lg="7">
         <h1>{{ filteredBlog[0].title }}</h1>
         <p>{{ filteredBlog[0].body }}</p>
       </v-col>
-      <v-col cols="12" md="6" lg="4">
+      <v-spacer></v-spacer>
+      <v-col cols="12" md="6" lg="3">
         <v-list>
           <v-card>
             <v-list-item>
-              <v-list-item-title>Blogs:</v-list-item-title>
+              <v-list-item-title class="display-1">Blogs:</v-list-item-title>
             </v-list-item>
             <v-list-item
               v-for="{ id, title } in removeCurrentBlogFromList"
@@ -43,7 +44,6 @@ export default {
     }),
     removeCurrentBlogFromList() {
       return this.blogsList.filter(blog => {
-        console.log(this.$route.params.id)
         return blog.id !== parseInt(this.$route.params.id)
       })
     }
