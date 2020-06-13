@@ -13,8 +13,8 @@
     <nuxt-link class="ma-2" to="/about">
       <v-btn class="orange">About</v-btn>
     </nuxt-link>
-    <nuxt-link class="ma-2" to="/about">
-      <v-btn class="red">About</v-btn>
+    <nuxt-link class="ma-2" to="/">
+      <v-btn class="red">Home</v-btn>
     </nuxt-link>
   </v-app-bar>
 </template>

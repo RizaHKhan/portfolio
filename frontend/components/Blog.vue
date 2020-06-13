@@ -1,15 +1,11 @@
 <template>
-  <div>
-    <v-card>
-      <v-card-title>
-        {{ title }}
-      </v-card-title>
-      <v-card-text>{{ bodyTruncated }}</v-card-text>
-      <v-card-actions>
-        <v-btn :to="'blog/' + id" color="blue">Read</v-btn>
-      </v-card-actions>
-    </v-card>
-  </div>
+  <v-card class="ma-3 pa-3">
+    <v-card-title>{{ title }}</v-card-title>
+    <v-card-text>{{ bodyTruncated }}</v-card-text>
+    <v-card-actions>
+      <v-btn :to="'blog/' + id" color="blue">Read</v-btn>
+    </v-card-actions>
+  </v-card>
 </template>
 
 <script>
@@ -30,7 +26,7 @@ export default {
   },
   computed: {
     bodyTruncated() {
-      return this.body.substring(0, 100).concat('...')
+      return this.body.substring(0, 200).concat('...')
     }
   }
 }
