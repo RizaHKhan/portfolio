@@ -16,6 +16,9 @@
     <nuxt-link class="ma-2" to="/">
       <v-btn class="red">Home</v-btn>
     </nuxt-link>
+    <nuxt-link class="ma-2" to="/blog">
+      <v-btn class="red">Blog</v-btn>
+    </nuxt-link>
   </v-app-bar>
 </template>
 
