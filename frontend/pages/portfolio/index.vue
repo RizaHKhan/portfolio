@@ -38,6 +38,9 @@ export default {
     ...mapGetters({
       portfolios: 'portfolios/getPortfolios'
     })
+  },
+  mounted() {
+    this.$store.dispatch('portfolios/getPortfolios')
   }
 }
 </script>
