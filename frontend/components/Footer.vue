@@ -11,6 +11,7 @@
 export default {
   mounted() {
     this.$store.dispatch('blogs/getBlogs')
+    this.$store.dispatch('portfolios/getPortfolios')
   }
 }
 </script>
