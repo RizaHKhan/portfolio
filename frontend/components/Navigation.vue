@@ -4,6 +4,7 @@
       <h1 class="display-2 white--text">khanr</h1>
     </nuxt-link>
     <v-spacer></v-spacer>
+    <Register />
     <nuxt-link class="ma-2" to="/contact">
       <v-btn class="blue">Contact</v-btn>
     </nuxt-link>
@@ -25,9 +26,11 @@
 
 <script>
 import SignIn from '@/components/SignIn'
+import Register from '@/components/Register'
 export default {
   components: {
-    SignIn
+    SignIn,
+    Register
   }
 }
 </script>
