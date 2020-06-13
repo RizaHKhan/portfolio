@@ -4,8 +4,7 @@ export const state = () => ({
 })
 
 export const getters = {
-  getPortfolios: state => state.portfolios,
-  
+  getPortfolios: state => state.portfolios
 }
 export const mutations = {
   GET_PORTFOLIOS: (state, portfolios) => {

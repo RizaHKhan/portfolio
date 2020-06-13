@@ -4,9 +4,9 @@ export const state = () => ({
 })
 
 export const getters = {
-  getBlogs: (state) => state.blogs,
-  filteredBlog: (state) =>
-    state.blogs.filter((blog) => {
+  getBlogs: state => state.blogs,
+  filteredBlog: state =>
+    state.blogs.filter(blog => {
       return blog.id === state.filter
     })
 }
