@@ -19,9 +19,15 @@
     <nuxt-link class="ma-2" to="/blog">
       <v-btn class="red">Blog</v-btn>
     </nuxt-link>
+    <SignIn />
   </v-app-bar>
 </template>
 
 <script>
-export default {}
+import SignIn from '@/components/SignIn'
+export default {
+  components: {
+    SignIn
+  }
+}
 </script>
