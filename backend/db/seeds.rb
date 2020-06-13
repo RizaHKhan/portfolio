@@ -16,3 +16,18 @@ puts "Created 1 user"
 end
 
 puts "Created 10 blogs"
+
+10.times do |portfolio|
+  Portfolio.create!(
+    title: "Portfolio #{portfolio + 1}",
+    subtitle: "Portfolio subtitle #{portfolio + 1}",
+    description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+    imagepreview: 'https://via.placeholder.com/150',
+    imagemainone: 'https://via.placeholder.com/400',
+    imagemaintwo: 'https://via.placeholder.com/400',
+    imagemainthree: 'https://via.placeholder.com/400',
+    user_id: 1
+  )
+end
+
+puts "Created 10 Portfolios"
