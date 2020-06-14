@@ -1,7 +1,7 @@
 module Api
   module V1
     class BlogsController < ApplicationController
-      before_action :authorize_access_reqest!
+      before_action :authorize_access_request!
       before_action :set_blog, only: [:show, :update, :destroy]
 
       def index
