@@ -22,7 +22,7 @@ export const mutations = {
 export const actions = {
   async getBlogs({ commit }) {
     try {
-      const response = await this.$axios.$get('/api/')
+      const response = await this.$axios.$get('/api/blogs')
       commit('GET_BLOGS', response)
     } catch (error) {
       console.log(error)

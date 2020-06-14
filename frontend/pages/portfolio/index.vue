@@ -23,9 +23,9 @@
       </v-list-item>
 
       <v-card-actions>
-        <v-btn text class="red">
-          <nuxt-link :to="/portfolio/ + id" class="white--text">View</nuxt-link>
-        </v-btn>
+        <nuxt-link :to="/portfolio/ + id" class="white--text">
+          <v-btn class="red">View</v-btn> 
+        </nuxt-link>
       </v-card-actions>
     </v-card>
   </div>

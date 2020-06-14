@@ -4,24 +4,17 @@
       <h1 class="display-2 white--text">khanr</h1>
     </nuxt-link>
     <v-spacer></v-spacer>
-    <Register />
-    <nuxt-link class="ma-2" to="/contact">
-      <v-btn class="blue">Contact</v-btn>
+    <nuxt-link 
+          v-for="{ name, route, color } in links"
+      :key="name"
+      class="ma-2" 
+      :to="route">
+      <v-btn 
+        :class="color">{{ name }}</v-btn>
     </nuxt-link>
-    <nuxt-link class="ma-2" to="/portfolio">
-      <v-btn class="blue">Portfolio</v-btn>
-    </nuxt-link>
-    <nuxt-link class="ma-2" to="/about">
-      <v-btn class="orange">About</v-btn>
-    </nuxt-link>
-    <nuxt-link class="ma-2" to="/">
-      <v-btn class="red">Home</v-btn>
-    </nuxt-link>
-    <nuxt-link class="ma-2" to="/blog">
-      <v-btn class="red">Blog</v-btn>
-    </nuxt-link>
-    <SignIn />
-    <Logout />
+    <SignIn class="ma-2"/>
+    <Logout class="ma-2" />
+    <Register class="ma-2"/>
   </v-app-bar>
 </template>
 
@@ -35,6 +28,17 @@ export default {
     Register,
     Logout
   }, 
+  data() {
+    return {
+      links: [ 
+        { name: 'Home', route: '/', color: 'red'},
+        { name: 'Portfolio', route: '/portfolio', color: 'green'  },
+        { name: 'Blog', route: '/blog', color: 'yellow' },
+        { name: 'About', route: '/about', color: 'green' },
+        { name: 'Contact', route: '/contact', color: 'green'  },
+      ]
+    }
+  },
   methods: {
     logout() {
       this.$store.dispatch('user/logout')
@@ -42,3 +46,4 @@ export default {
   }
 }
 </script>
+

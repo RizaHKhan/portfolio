@@ -1,11 +1,11 @@
 export const state = () => ({
-  portfolios: [],
-  filter: ''
+  portfolios: []
 })
 
 export const getters = {
   getPortfolios: state => state.portfolios
 }
+
 export const mutations = {
   GET_PORTFOLIOS: (state, portfolios) => {
     state.portfolios = portfolios
