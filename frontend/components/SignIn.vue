@@ -9,7 +9,7 @@
           >Add a New Project</v-card-title
         >
         <v-card-actions>
-          <v-form ref="form" lazy-validation @submit.prevent="signIn">
+          <v-form ref="form" lazy-validation @submit.prevent="login">
             <v-text-field
               v-model="email"
               label="E-mail"
@@ -37,8 +37,8 @@ export default {
     password: ''
   }),
   methods: {
-    signIn() {
-      this.$store.dispatch('user/signIn', {
+    login() {
+      this.$store.dispatch('user/login', {
         email: this.email,
         password: this.password
       })

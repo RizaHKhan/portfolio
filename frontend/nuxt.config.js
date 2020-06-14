@@ -19,7 +19,7 @@ export default {
   loading: { color: '#fff' },
   css: [],
   plugins: ['~/plugins/axios'],
-  buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/vuetify'],
+  buildModules: ['@nuxtjs/vuetify'],
   modules: ['@nuxtjs/axios', '@nuxtjs/pwa'],
   axios: {
     proxy: true

@@ -17,6 +17,9 @@ export default {
   components: {
     Footer,
     Navigation
+  },
+  mounted() {
+    this.$store.dispatch('user/isLogged_in')
   }
 }
 </script>

@@ -21,6 +21,7 @@
       <v-btn class="red">Blog</v-btn>
     </nuxt-link>
     <SignIn />
+    <v-btn class="red" @click.prevent="logout">Logout</v-btn>
   </v-app-bar>
 </template>
 
@@ -31,6 +32,11 @@ export default {
   components: {
     SignIn,
     Register
+  }, 
+  methods: {
+    logout() {
+      this.$store.dispatch('user/logout')
+    }
   }
 }
 </script>

@@ -24,7 +24,7 @@
             <v-text-field
               v-model="password_confirmation"
               type="password"
-              label="Password"
+              label="Password Confirmation"
               required
             ></v-text-field>
             <input type="submit" value="Register" />
