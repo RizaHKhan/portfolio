@@ -21,17 +21,19 @@
       <v-btn class="red">Blog</v-btn>
     </nuxt-link>
     <SignIn />
-    <v-btn class="red" @click.prevent="logout">Logout</v-btn>
+    <Logout />
   </v-app-bar>
 </template>
 
 <script>
 import SignIn from '@/components/SignIn'
 import Register from '@/components/Register'
+import Logout from '@/components/Logout'
 export default {
   components: {
     SignIn,
-    Register
+    Register,
+    Logout
   }, 
   methods: {
     logout() {

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :portfolios
+  resources :blogs
   resources :sessions, only: [:create]
   resources :registrations, only: [:create]
   delete :logout, to: "sessions#logout"
