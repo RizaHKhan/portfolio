@@ -19,7 +19,7 @@ export default {
     Navigation
   },
   mounted() {
-    this.$store.dispatch('user/isLogged_in')
+    this.$store.dispatch('isLogged_in')
   }
 }
 </script>
